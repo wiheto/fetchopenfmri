@@ -22,7 +22,7 @@ The dataset number can be with or without the zeros. I.e. 123 will download data
 
 Files will get saved in `/path/to/save/openfmri/ds000123/`
 
-__After running fetchopenfmri it is best to manually check via openfmri that all necessary files were downloaded. There may be some reason that the script breaks on certain datasets. If that happens, leave an issue and I will fix it. Furthermore, the user should note which version of data they are using and how to appropriately credit openfmri and the data providers.__
+__After running fetchopenfmri it is best to manually check via openfmri that all files were downloaded. There may be some reason that the script breaks on certain datasets. If that happens, leave an issue and I will fix it. Furthermore, the user should note which version of data they are using and how to appropriately credit openfmri and the data providers.__
 
 Only tested to work on python 3 and Linux. In principle should work for other OS and python 2 but not tested. If anyone runs into any problems, leave an issue.
 

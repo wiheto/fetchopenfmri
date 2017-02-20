@@ -8,6 +8,6 @@ setup(name='fetchopenfmri',
       entry_points={
         'console_scripts': ['fetchopenfmri=fetchopenfmri.fetch:main'],
       },
-      download_url = 'https://github.com/wiheto/fetchopenfmri/tarball/v1'
+      download_url = 'https://github.com/wiheto/fetchopenfmri/archive/v1.tar.gz'
       keyworkds={'openfmri','open data','fmri'}
       )
