@@ -1,6 +1,6 @@
 from setuptools import setup,find_packages
 setup(name='fetchopenfmri',
-      version='1.0',
+      version='1.0.1',
       description='Fetches files for the latest version of an openfMRI dataset',
       packages=find_packages(),
       author='William Hedley Thompson',
@@ -9,6 +9,6 @@ setup(name='fetchopenfmri',
       entry_points={
         'console_scripts': ['fetchopenfmri=fetchopenfmri.fetch:main'],
       },
-      download_url = 'https://github.com/wiheto/fetchopenfmri/archive/v1.tar.gz',
+      download_url = 'https://github.com/wiheto/fetchopenfmri/archive/v1.0.1.tar.gz',
       keywords=['openfmri','open data','fmri']
       )
