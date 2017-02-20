@@ -35,11 +35,11 @@ It is called the "Accession Number".  Can be found on each individual dataset pa
 
 ### How does it work?
 
-As different versions of datasets get new links to the data, and different datasets have different amount of links. The way the links for each dataset are obtained is a little hacky, but it seems to works.
+As different versions of datasets get new their download links modified and different datasets have different amount of links,  the solution is a little hacky, but it seems to work.
 
-First, the script "scrapes" the openfmri dataset page. It then splits the page by finding all instances of "Data Associated with Revision" and takes all the links from the first instance of this. This gathers all the links. Then the script cycles through the links and downloads the corresponding file.
+First, the script "scrapes" the openfmri dataset page with BeautifulSoup. It then splits the page by finding all instances of "Data Associated with Revision" and takes all the download links that occur from the first instance of this phrase to the second (or the end of the page if there is only one release). This is a static phrase that appears before every release for each dataset. The script cycles through the links and downloads the corresponding file.
 
-These files will always be compressed so the script also automatically uncompresses them (only tar or zip files). If the compression is of any other file type (which may be the case, but I havn't seen them yet) the files will remain compressed. In such cases, it is best to add a 0 at the end of the script os that the compressed files are not deleted. 
+These files will always be compressed so the script also automatically uncompresses them (only tar or zip files). If the compression is of any other file type (which may be the case, but I havn't seen them yet) the files will remain compressed. In such cases, it is best to add a 0 at the end of the script os that the compressed files are not deleted.
 
 ### Version and citation of openfmri
 
