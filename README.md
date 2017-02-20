@@ -20,13 +20,13 @@ fetchopenfmri <datasetnumber> /path/to/save [0/1]
 
 The dataset number can be with or without the zeros. I.e. 123 will download dataset 000123.
 
-Files will get saved in `/path/to/save/openfmri/ds000123/`
+Uncompressed files will get saved in `/path/to/save/openfmri/ds000<datasetnumber>/`. Compressed files, if kept, are found in `/path/to/save/openfmri/`
 
 The final argument is optional and is either a 0 or 1 (1 is the default). If 1, the compressed files will be deleted after they are uncompressed. 0 will keep them.
 
 __After running fetchopenfmri it is best to manually check via openfmri that all files were downloaded. There may be some reason that the script breaks on certain datasets. If that happens, leave an issue and I will fix it. Furthermore, the user should note which version of data they are using and how to appropriately credit openfmri and the data providers.__
 
-Only tested to work on python 3 and Linux. In principle should work for other OS and python 2 but not tested. If anyone runs into any problems, leave an issue.
+Only tested to work on python 3 and Linux. In principle should work for other OSX (Need to double check a few thinks for windows) and should work for python 2. None of these are tested though. If anyone runs into any problems, leave an issue.
 
 
 ### How do I find the dataset number at openfmri?
