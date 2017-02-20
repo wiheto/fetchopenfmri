@@ -44,7 +44,7 @@ def get_dataset(ds,dataDir,removecompressed=1):
     except:
         pass
 
-    datasetDir = dataDir + 'openfmri/'
+    datasetDir = dataDir + '/openfmri/'
 
     try:
         os.mkdir(datasetDir)
