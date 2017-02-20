@@ -26,7 +26,9 @@ The final argument is optional and is either a 0 or 1 (1 is the default). If 1, 
 
 __After running fetchopenfmri it is best to manually check via openfmri that all files were downloaded. There may be some reason that the script breaks on certain datasets. If that happens, leave an issue and I will fix it. Furthermore, the user should note which version of data they are using and how to appropriately credit openfmri and the data providers.__
 
-Only tested to work on python 3 and Linux. In principle should work for other OSX (Need to double check a few thinks for windows) and should work for python 2. None of these are tested though. If anyone runs into any problems, leave an issue.
+Only tested python 3.5 and Linux. 
+
+In principle should work for OSX without a problem. (Windows should be ok as well but need to doublecheck a few things regarding file structure) and should also work for python 2. None of these are tested though. If anyone runs into any problems, leave an issue and I will fix it.
 
 
 ### How do I find the dataset number at openfmri?
