@@ -1,7 +1,7 @@
 
 #Fetchopenfmri
 
-Small script I made that fetches datasets from openfmri.org
+Small script I made that fetches datasets from www.openfmri.org
 
 ### Install:  
 
