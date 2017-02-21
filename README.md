@@ -1,7 +1,7 @@
 
 #Fetchopenfmri
 
-Small script I made that fetches datasets from openfmri.org
+Small script I made that fetches datasets from www.openfmri.org
 
 ### Install:  
 
@@ -20,13 +20,15 @@ fetchopenfmri <datasetnumber> /path/to/save [0/1]
 
 The dataset number can be with or without the zeros. I.e. 123 will download dataset 000123.
 
-Files will get saved in `/path/to/save/openfmri/ds000123/`
+Uncompressed files will get saved in `/path/to/save/openfmri/ds000<datasetnumber>/`. Compressed files, if kept, are found in `/path/to/save/openfmri/`
 
 The final argument is optional and is either a 0 or 1 (1 is the default). If 1, the compressed files will be deleted after they are uncompressed. 0 will keep them.
 
 __After running fetchopenfmri it is best to manually check via openfmri that all files were downloaded. There may be some reason that the script breaks on certain datasets. If that happens, leave an issue and I will fix it. Furthermore, the user should note which version of data they are using and how to appropriately credit openfmri and the data providers.__
 
-Only tested to work on python 3 and Linux. In principle should work for other OS and python 2 but not tested. If anyone runs into any problems, leave an issue.
+Only tested python 3.5 and Linux. 
+
+In principle should work for OSX without a problem. (Windows should be ok as well but need to doublecheck a few things regarding file structure) and should also work for python 2. None of these are tested though. If anyone runs into any problems, leave an issue and I will fix it.
 
 
 ### How do I find the dataset number at openfmri?
@@ -39,7 +41,7 @@ As different versions of datasets get new their download links modified and diff
 
 First, the script "scrapes" the openfmri dataset page with BeautifulSoup. It then splits the page by finding all instances of "Data Associated with Revision" and takes all the download links that occur from the first instance of this phrase to the second (or the end of the page if there is only one release). This is a static phrase that appears before every release for each dataset. The script cycles through the links and downloads the corresponding file.
 
-These files will always be compressed so the script also automatically uncompresses them (only tar or zip files). If the compression is of any other file type (which may be the case, but I havn't seen them yet) the files will remain compressed. In such cases, it is best to add a 0 at the end of the script os that the compressed files are not deleted.
+These files will always be compressed so the script also automatically uncompresses them (only tar or zip files). If the compression is of any other file type (which may be the case, but I havn't seen them yet) the files will remain compressed. (In such cases, it is best to add a 0 in the third argument so that the compressed files are not deleted.)
 
 ### Version and citation of openfmri
 
