@@ -1,5 +1,5 @@
 
-#Fetchopenfmri
+# Fetchopenfmri
 
 Small script I made that fetches datasets from www.openfmri.org
 
@@ -24,11 +24,9 @@ Uncompressed files will get saved in `/path/to/save/openfmri/ds000<datasetnumber
 
 The final argument is optional and is either a 0 or 1 (1 is the default). If 1, the compressed files will be deleted after they are uncompressed. 0 will keep them.
 
-__After running fetchopenfmri it is best to manually check via openfmri that all files were downloaded. There may be some reason that the script breaks on certain datasets. If that happens, leave an issue and I will fix it. Furthermore, the user should note which version of data they are using and how to appropriately credit openfmri and the data providers.__
+After running fetchopenfmri it is best to manually check via openfmri that all files were downloaded. There may be some reason that the script breaks on certain datasets. If that happens, leave an issue and I will fix it. Furthermore, the user should note which version of data they are using and how to appropriately credit openfmri and the data providers.
 
-Only tested python 3.5 and Linux. 
-
-In principle should work for OSX without a problem. (Windows should be ok as well but need to doublecheck a few things regarding file structure) and should also work for python 2. None of these are tested though. If anyone runs into any problems, leave an issue and I will fix it.
+Should work for both python 2 and 3 since version 1.0.3 and for all OSs. If there are any problems, please leave an issue.  
 
 
 ### How do I find the dataset number at openfmri?
