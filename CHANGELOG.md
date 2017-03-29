@@ -3,9 +3,7 @@
 
 ### V1.0.3 (29 March 2017)
 
-Merged pull request by @tsala
-
-Made python 2 compatible. Fixing Issue #2 and #3. 
+Merged pull request by (https://github.com/tsalo)[tsalo]. Made furhter adjustments to make tarfile/zipfile python 2 compatible. Fixing Issue (https://github.com/wiheto/fetchopenfmri/issues/2)[#2] and (https://github.com/wiheto/fetchopenfmri/pull/3)[#3]. 
 
 ### V1.0.2 (21 Feb 2017)
 
