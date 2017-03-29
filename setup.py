@@ -1,6 +1,6 @@
 from setuptools import setup,find_packages
 setup(name='fetchopenfmri',
-      version='1.0.2',
+      version='1.0.3',
       description='Fetches files for the latest version of an openfMRI dataset',
       packages=find_packages(),
       author='William Hedley Thompson',

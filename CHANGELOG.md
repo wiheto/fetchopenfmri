@@ -1,6 +1,12 @@
 
 # Changelog
 
+### V1.0.3 (29 March 2017)
+
+Merged pull request by @tsala
+
+Made python 2 compatible. Fixing Issue #2 and #3. 
+
 ### V1.0.2 (21 Feb 2017)
 
 [Possibly fixing issue 1](https://github.com/wiheto/fetchopenfmri/issues/1) by adding zf.close() and tf.close()
