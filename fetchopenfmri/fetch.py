@@ -3,15 +3,21 @@
 
 import os
 from bs4 import BeautifulSoup
-import urllib.request
 import re
 import zipfile
 import tarfile
 import sys
 
+if sys.version_info[0] == 3:
+    from urllib.request import urlopen, urlretrieve
+elif sys.version_info[0] == 2:
+    from urllib2 import urlopen
+    from urllib import urlretrieve
+
 
 if __name__ == "__main__":
     main()
+
 
 def main():
     if len(sys.argv)==3:
@@ -51,16 +57,15 @@ def get_dataset(ds,dataDir,removecompressed=1):
     except:
         pass
 
-    datasetDir = dataDir + '/openfmri/'
+    datasetDir = os.path.join(dataDir, 'openfmri/')
 
     try:
         os.mkdir(datasetDir)
     except:
         pass
 
-
     openfMRI_url = 'https://openfmri.org/dataset/ds' + openfMRI_dataset_string + '/'
-    r = urllib.request.urlopen(openfMRI_url).read()
+    r = urlopen(openfMRI_url).read()
     soup = BeautifulSoup(r,'lxml')
 
     #Isolate only the links from the latest revision. The text "data associated with revision". If the website changes its static text, this  needs to be changed
@@ -81,7 +86,7 @@ def get_dataset(ds,dataDir,removecompressed=1):
             filename_start=re.search('ds[A-Za-z_0-9.-]*$',a['href']).start()
             filelist.append(a['href'][filename_start:])
             print('Downloading: ' + a['href'][filename_start:])
-            urllib.request.urlretrieve(a['href'],datasetDir + a['href'][filename_start:])
+            urlretrieve(a['href'],datasetDir + a['href'][filename_start:])
     print('--- Download complete ---')
     for f in filelist:
         print('Uncompressing: ' + f)
@@ -90,9 +95,8 @@ def get_dataset(ds,dataDir,removecompressed=1):
             zf.extractall(datasetDir)
             zf.close()
         elif tarfile.is_tarfile(datasetDir + f):
-            tf=tarfile.TarFile(datasetDir)
-            tf.extractall(datasetDir)
-            tf.close()
+            with tarfile.open(datasetDir+f) as tf:
+                tf.extractall(datasetDir)
     print('--- Uncompressing complete ---')
     if removecompressed==1:
         for f in filelist:
