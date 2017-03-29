@@ -32,14 +32,9 @@ def untar_or_unzip(datasetDir,f):
         zf.extractall(datasetDir)
         zf.close()
     elif tarfile.is_tarfile(datasetDir + f):
-        if sys.version_info[0] == 3:
-            tf=tarfile.TarFile(datasetDir + f)
+        with tarfile.open(datasetDir+f) as tf:
             tf.extractall(datasetDir)
             tf.close()
-        elif sys.version_info[0] == 2:
-            with tarfile.open(datasetDir+f) as tf:
-                tf.extractall(datasetDir)
-                tf.close()
 
 
 def get_dataset(ds,dataDir,removecompressed=1):
