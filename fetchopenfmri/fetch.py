@@ -15,9 +15,6 @@ elif sys.version_info[0] == 2:
     from urllib import urlretrieve
 
 
-if __name__ == "__main__":
-    main()
-
 
 def main():
     if len(sys.argv)==3:
@@ -30,24 +27,19 @@ def main():
 
 
 def untar_or_unzip(datasetDir,f):
-    if sys.version_info[0] == 3:
-        if zipfile.is_zipfile(datasetDir + f):
-            zf=zipfile.ZipFile(datasetDir + f)
-            zf.extractall(datasetDir)
-            zf.close()
-        if tarfile.is_tarfile(datasetDir + f):
-            tf=tarfuke.TarFuke(datasetDir + f)
+    if zipfile.is_zipfile(datasetDir + f):
+        zf=zipfile.ZipFile(datasetDir + f)
+        zf.extractall(datasetDir)
+        zf.close()
+    elif tarfile.is_tarfile(datasetDir + f):
+        if sys.version_info[0] == 3:
+            tf=tarfile.TarFile(datasetDir + f)
             tf.extractall(datasetDir)
             tf.close()
-    elif sys.version_info[0] == 2:
-        if zipfile.is_zipfile(datasetDir + f):
-            with zipfile.open(datasetDir+f) as zp:
-                zp.extractall(datasetDir)
-            zipfile.close()
-        elif tarfile.is_tarfile(datasetDir + f):
+        elif sys.version_info[0] == 2:
             with tarfile.open(datasetDir+f) as tf:
                 tf.extractall(datasetDir)
-            tarfile.close()
+                tf.close()
 
 
 def get_dataset(ds,dataDir,removecompressed=1):
@@ -120,3 +112,7 @@ def get_dataset(ds,dataDir,removecompressed=1):
         print('--- Clean up complete ---')
     print('NOTE: It is best to verify manually that all the correct data has been downloaded and uncompressed correctly. \n If data is used in any publication, see openfmri.org about how to appropriately cite/credit the data.')
     print('--- Script complete ---')
+
+
+if __name__ == "__main__":
+    main()
