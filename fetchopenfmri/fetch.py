@@ -28,6 +28,28 @@ def main():
         raise ValueError('Inputs must be \">fetchopenfmri 123 ./path/to/save/\ [1/0]" where 123 corresponds with an openfmri dataset number (with or without zeros). The final argument is 0 or 1 and removes the compression.')
 
 
+
+def untar_or_unzip(datasetDir,f):
+    if sys.version_info[0] == 3:
+        if zipfile.is_zipfile(datasetDir + f):
+            zf=zipfile.ZipFile(datasetDir + f)
+            zf.extractall(datasetDir)
+            zf.close()
+        if tarfile.is_tarfile(datasetDir + f):
+            tf=tarfuke.TarFuke(datasetDir + f)
+            tf.extractall(datasetDir)
+            tf.close()
+    elif sys.version_info[0] == 2:
+        if zipfile.is_zipfile(datasetDir + f):
+            with zipfile.open(datasetDir+f) as zp:
+                zp.extractall(datasetDir)
+            zipfile.close()
+        elif tarfile.is_tarfile(datasetDir + f):
+            with tarfile.open(datasetDir+f) as tf:
+                tf.extractall(datasetDir)
+            tarfile.close()
+
+
 def get_dataset(ds,dataDir,removecompressed=1):
 
     """
@@ -89,14 +111,7 @@ def get_dataset(ds,dataDir,removecompressed=1):
             urlretrieve(a['href'],datasetDir + a['href'][filename_start:])
     print('--- Download complete ---')
     for f in filelist:
-        print('Uncompressing: ' + f)
-        if zipfile.is_zipfile(datasetDir + f):
-            zf=zipfile.ZipFile(datasetDir + f)
-            zf.extractall(datasetDir)
-            zf.close()
-        elif tarfile.is_tarfile(datasetDir + f):
-            with tarfile.open(datasetDir+f) as tf:
-                tf.extractall(datasetDir)
+        untar_or_unzip(datasetDir,f)
     print('--- Uncompressing complete ---')
     if removecompressed==1:
         for f in filelist:
